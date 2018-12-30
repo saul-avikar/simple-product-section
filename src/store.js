@@ -21,14 +21,12 @@ export default new Vuex.Store({
 			}
 		],
 
-		cart: [
-
-		]
-	},
-	mutations: {
-
+		cart: []
 	},
 	actions: {
+
+	},
+	mutations: {
 
 	}
 });

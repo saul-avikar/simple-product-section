@@ -1,5 +1,5 @@
 <template>
 	<div>
-		product image
+		<img src="../assets/classic-tee.jpg" alt="Classic Tee" />
 	</div>
 </template>

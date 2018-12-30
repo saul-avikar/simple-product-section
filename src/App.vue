@@ -1,18 +1,18 @@
 <template>
 	<div id="app">
-		<a-header />
+		<main-header />
 		<product-page />
 	</div>
 </template>
 
 <script>
-import AHeader from "@/components/app-header";
+import MainHeader from "@/components/main-header";
 import ProductPage from "@/components/product-page";
 
 export default {
 	name: "app",
 	components: {
-		AHeader,
+		MainHeader,
 		ProductPage
 	}
 };
