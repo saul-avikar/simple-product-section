@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<main-header />
-		<product-page />
+		<product-page :product="product" />
 	</div>
 </template>
 
@@ -10,7 +10,15 @@ import MainHeader from "@/components/main-header";
 import ProductPage from "@/components/product-page";
 
 export default {
-	name: "app",
+	data: () => ({
+		product: {
+			name: "TEST",
+			description: "test",
+			price: 12,
+			image: "./assets/classic-tee.jpg"
+		}
+	}),
+
 	components: {
 		MainHeader,
 		ProductPage
