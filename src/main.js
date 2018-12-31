@@ -20,6 +20,12 @@ Vue.directive("click-outside", {
 	}
 });
 
+Vue.filter("price", value => {
+	let returnValue = Math.round(value * 100) / 100;
+
+	return "$" + returnValue;
+});
+
 new Vue({
 	store,
 	render: h => h(App)
