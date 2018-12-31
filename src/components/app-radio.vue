@@ -52,7 +52,8 @@ export default {
 		color: var(--text-color-secondary);
 
 		border: 1px solid var(--border-color-secondary);
-		padding: 10px;
+		/* 1px extra padding so it remains the same size when border is added */
+		padding: 11px;
 		margin: 5px;
 
 		width: 20px;
@@ -61,6 +62,8 @@ export default {
 
 	.radio-label-selected {
 		color: var(--text-color-primary);
-		border: 1px solid var(--border-color-primary);
+		border: 2px solid var(--border-color-primary);
+		/* Remove the extra padding */
+		padding: 10px;
 	}
 </style>

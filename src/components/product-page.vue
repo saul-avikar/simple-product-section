@@ -4,12 +4,15 @@
 
 		<h2>{{ product.name }}</h2>
 		<h2>{{ product.price }}</h2>
-		<p>{{ product.description }}</p>
+		<p class="product-description">{{ product.description }}</p>
+
 		<product-options :options="product.options" />
 
-		<div>
-			Add to cart
+		<div v-if="error" class="required-error">
+			Fields marked * are required.
 		</div>
+
+		<div class="add-to-cart" @click="addToCart">ADD TO CART</div>
 	</div>
 </template>
 
@@ -37,8 +40,52 @@ export default {
 		}
 	},
 
+	data: () => ({
+		error: null
+
+	}),
+
+	methods: {
+		addToCart () {
+			this.error = false;
+
+			const options = this.product.options.map(value => {
+				if (value.required && !value.selectedValue) {
+					this.error = true;
+				}
+
+				return {
+					name: value.name,
+					value: value.selectedValue
+				};
+			});
+
+			if (!this.error) {
+				// Add to cart
+			}
+		}
+	},
+
 	components: {
 		ProductOptions
 	}
 };
 </script>
+
+<style scoped>
+	.product-description {
+		color: var(--text-color-secondary);
+	}
+
+	.required-error {
+		color: var(--text-color-required);
+	}
+
+	.add-to-cart {
+		border: 2px solid var(--border-color-primary);
+		display: inline-block;
+		padding: 5px 10px;
+		font-weight: 600;
+		cursor: pointer;
+	}
+</style>
