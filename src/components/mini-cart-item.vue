@@ -11,9 +11,11 @@
 		</div>
 
 		<div class="mini-cart-property">
-			<div v-for="(option, index) in item.options" :key="index">
-				<span class="mini-cart-option-name">{{ option.name }}:</span> {{ option.value }}
-			</div>
+			<template v-for="(option, index) in item.options">
+				<span :key="index">
+					<span class="mini-cart-option-name">{{ option.name }}:</span> {{ option.value }}
+				</span>
+			</template>
 		</div>
 	</div>
 </template>

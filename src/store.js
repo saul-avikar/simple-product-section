@@ -33,13 +33,19 @@ export default new Vuex.Store({
 			state.cart.forEach(item => {
 				// Check ids
 				if (item.id === product.id) {
+					var hasSameOptions = true;
+
 					item.options.forEach((option, index) => {
 						// Check if they have the same options
-						if (option.value === product.options[index].value) {
-							alreadyInCart = true;
-							item.quantity++;
+						if (option.value !== product.options[index].value) {
+							hasSameOptions = false;
 						}
 					});
+
+					if (hasSameOptions) {
+						alreadyInCart = true;
+						item.quantity++;
+					}
 				}
 			});
 
