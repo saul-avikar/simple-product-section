@@ -66,7 +66,8 @@ export default {
 	.nav-cart {
 		box-sizing: border-box;
 		height: 30px;
-		width: 120px;
+		width: 125px;
+		white-space: nowrap;
 	}
 
 	.dropdown {

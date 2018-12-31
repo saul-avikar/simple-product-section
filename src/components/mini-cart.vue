@@ -54,7 +54,7 @@ export default {
 			top: -1px; right: 0px;
 			content: '';
 			background: #fff;
-			width: 118px;
+			width: 123px;
 			height: 1px;
 		}
 	}
