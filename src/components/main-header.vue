@@ -4,8 +4,6 @@
 			<div class="dropdown">
 				<a-nav-link
 					class="nav-cart"
-					@click.native="openCart"
-					v-click-outside="closeCart"
 				>
 					<template v-if="isMobile">
 						<i class="material-icons">shopping_cart</i>
@@ -26,20 +24,6 @@ import MiniCart from "./mini-cart";
 import ANavLink from "./app-nav-link";
 
 export default {
-	data: () => ({
-		showCart: false
-	}),
-
-	methods: {
-		openCart () {
-			this.showCart = !this.showCart;
-		},
-
-		closeCart () {
-			this.showCart = false;
-		}
-	},
-
 	computed: {
 		cartSize () {
 			let cart = this.$store.state.cart;

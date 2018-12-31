@@ -146,7 +146,6 @@ export default {
 		color: white;
 	}
 
-
 	@media screen and (max-width: 1000px) {
 		.product-page {
 			padding: 0px 20px;
