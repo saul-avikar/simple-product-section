@@ -1,6 +1,8 @@
 <template>
-	<div>
-		cart-item {{item.name}}
+	<div class="mini-cart-item">
+		<img :src="item.src" :alt="item.name" />
+		<span>{{ item.name }}</span>
+		<span>{{ item.price }}</span>
 	</div>
 </template>
 
@@ -14,3 +16,7 @@ export default {
 	}
 };
 </script>
+
+<style scoped>
+
+</style>

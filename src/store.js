@@ -9,6 +9,7 @@ export default new Vuex.Store({
 			{
 				name: "Classic Tee",
 				price: 75,
+				id: 0,
 				image: "./assets/classic-tee.jpg",
 				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 				options: [
@@ -27,7 +28,25 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		addToCart (state, product) {
-			state.cart.push(product);
+			let alreadyInCart = false;
+
+			state.cart.forEach(item => {
+				// Check ids
+				if (item.id === product.id) {
+					item.options.forEach((option, index) => {
+						// Check if they have the same options
+						if (option.value === product.options[index].value) {
+							alreadyInCart = true;
+							item.quantity++;
+						}
+					});
+				}
+			});
+
+			if (!alreadyInCart) {
+				product.quantity = 1;
+				state.cart.push(product);
+			}
 		}
 	}
 });
