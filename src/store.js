@@ -15,7 +15,7 @@ export default new Vuex.Store({
 					{
 						name: "SIZE",
 						required: true,
-						options: ["S", "M", "L"]
+						choices: ["S", "M", "L"]
 					}
 				]
 			}

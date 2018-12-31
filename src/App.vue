@@ -10,14 +10,12 @@ import MainHeader from "@/components/main-header";
 import ProductPage from "@/components/product-page";
 
 export default {
-	data: () => ({
-		product: {
-			name: "TEST",
-			description: "test",
-			price: 12,
-			image: "./assets/classic-tee.jpg"
+	computed: {
+		product () {
+			// For the prototype return the only product in the database.
+			return this.$store.state.products[0];
 		}
-	}),
+	},
 
 	components: {
 		MainHeader,
