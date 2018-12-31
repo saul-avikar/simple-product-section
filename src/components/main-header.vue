@@ -7,7 +7,7 @@
 					@click.native="openCart"
 					v-click-outside="closeCart"
 				>
-					My Cart ({{ cartSize }})
+					My Cart ( {{ cartSize }} )
 				</a-nav-link>
 				<mini-cart class="mini-cart" />
 			</div>
@@ -72,7 +72,7 @@ export default {
 	.nav-cart {
 		box-sizing: border-box;
 		height: 30px;
-		width: 110px;
+		width: 120px;
 	}
 
 	.dropdown {
@@ -97,5 +97,11 @@ export default {
 		position: absolute;
 		z-index: 1;
 		right:0;
+	}
+
+	@media (max-width: 600px) {
+		.header {
+			padding: 0px 5%;
+		}
 	}
 </style>

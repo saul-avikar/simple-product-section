@@ -38,4 +38,8 @@ export default {
 		/* Main Text Color */
 		color: var(--text-color-primary);
 	}
+
+	html, body, #app {
+		margin: 0px;
+	}
 </style>

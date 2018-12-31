@@ -4,7 +4,7 @@
 			<div class="option-title">
 				<span class="option-name">{{ option.name }}</span>
 				<span v-if="option.required" class="option-required">* </span>
-				<span class="option-selection">{{ selectedValue }}</span>
+				<span class="option-selection">{{ option.selectedValue }}</span>
 			</div>
 
 			<template v-for="(choice, index) in option.choices">
@@ -30,10 +30,6 @@ export default {
 			required: true
 		}
 	},
-
-	data: () => ({
-		selectedValue: null
-	}),
 
 	methods: {
 		selected (value, optionIndex) {

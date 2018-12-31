@@ -2,9 +2,11 @@
 	<div class="product-page">
 		<!--
 			Use when using real urls.
-			<img class="product-image" :src="product.image" :alt="product.name" />
+			<img class="product-image-container" :src="product.image" :alt="product.name" />
 		-->
-		<img class="product-image" src="../assets/classic-tee.jpg" :alt="product.name" />
+		<div class="product-image-container">
+			<img class="product-image" src="../assets/classic-tee.jpg" :alt="product.name" />
+		</div>
 
 		<div class="product-details">
 			<div class="product-name">{{ product.name }}</div>
@@ -86,14 +88,22 @@ export default {
 	.product-page {
 		display: flex;
 		flex-direction: row;
-		width: 70%;
-		left: 15%;
-		position: relative;
+		box-sizing: border-box;
+		width: 100%;
+		padding: 0px 200px;
+	}
+
+	.product-image-container {
+		box-sizing: border-box;
+		width: 50%;
+		max-height: 500px;
+		padding: 20px 20px;
+		text-align:center;
 	}
 
 	.product-image {
-		width: 50%;
-		padding: 20px 80px;
+		max-width: 100%;
+		max-height: 600px;
 	}
 
 	.product-details {
@@ -134,5 +144,35 @@ export default {
 	.add-to-cart:hover {
 		background-color: var(--border-color-primary);
 		color: white;
+	}
+
+
+	@media screen and (max-width: 1000px) {
+		.product-page {
+			padding: 0px 20px;
+		}
+
+		.product-image-container {
+			max-height: 60%;
+			padding: 20px 20px;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		.product-page {
+			padding: 0px 20px;
+			padding-bottom: 30px;
+			flex-direction: column;
+		}
+
+		.product-image-container {
+			width: 100%;
+			max-width: 100%;
+			padding: 20px 20px;
+		}
+
+		.product-details {
+			width: 100%;
+		}
 	}
 </style>
