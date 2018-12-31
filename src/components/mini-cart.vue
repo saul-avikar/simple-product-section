@@ -25,9 +25,9 @@ export default {
 <style scoped>
 	.mini-cart {
 		position: absolute;
-		padding: 20px;
+		padding: 0px 20px;
 		margin-right: auto;
-		width: 200px;
+		width: 300px;
 		border: 1px solid var(--border-color-secondary);
 		background-color: white;
 	}
@@ -37,7 +37,7 @@ export default {
 		top: -1px; right: 0px;
 		content: '';
 		background: #fff;
-		width: 78px;
+		width: 108px;
 		height: 1px;
 	}
 </style>

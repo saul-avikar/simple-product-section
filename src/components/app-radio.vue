@@ -54,7 +54,7 @@ export default {
 		border: 1px solid var(--border-color-secondary);
 		/* 1px extra padding so it remains the same size when border is added */
 		padding: 11px;
-		margin: 5px;
+		margin: 5px 10px 5px 0px;
 
 		width: 20px;
 		height: 20px;

@@ -2,7 +2,13 @@
 	<header class="header">
 		<nav class="nav-bar">
 			<div class="dropdown">
-				<a-nav-link class="nav-cart" @click.native="openCart" v-click-outside="closeCart">My Cart</a-nav-link>
+				<a-nav-link
+					class="nav-cart"
+					@click.native="openCart"
+					v-click-outside="closeCart"
+				>
+					My Cart ({{ cartSize }})
+				</a-nav-link>
 				<mini-cart class="mini-cart" />
 			</div>
 		</nav>
@@ -28,6 +34,24 @@ export default {
 		}
 	},
 
+	computed: {
+		cartSize () {
+			let cart = this.$store.state.cart;
+
+			if (cart.length <= 1) {
+				return cart.length ? cart[0].quantity : 0;
+			}
+
+			let cartTotal = cart.reduce((a, product) => {
+				return {
+					quantity: a.quantity + product.quantity
+				};
+			}).quantity;
+
+			return cartTotal;
+		}
+	},
+
 	components: {
 		MiniCart,
 		ANavLink
@@ -48,7 +72,7 @@ export default {
 	.nav-cart {
 		box-sizing: border-box;
 		height: 30px;
-		width: 80px;
+		width: 110px;
 	}
 
 	.dropdown {

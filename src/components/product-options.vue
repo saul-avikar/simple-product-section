@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div v-for="(option, optionIndex) in options" :key="option.name">
-			<div>
+			<div class="option-title">
 				<span class="option-name">{{ option.name }}</span>
 				<span v-if="option.required" class="option-required">* </span>
 				<span class="option-selection">{{ selectedValue }}</span>
@@ -48,6 +48,10 @@ export default {
 </script>
 
 <style scoped>
+	.option-title {
+		padding: 5px 0px;
+	}
+
 	.option-name {
 		color: var(--text-color-secondary);
 	}

@@ -1,18 +1,24 @@
 <template>
-	<div>
-		<img :src="product.image" :alt="product.name" />
+	<div class="product-page">
+		<!--
+			Use when using real urls.
+			<img class="product-image" :src="product.image" :alt="product.name" />
+		-->
+		<img class="product-image" src="../assets/classic-tee.jpg" :alt="product.name" />
 
-		<h2>{{ product.name }}</h2>
-		<h2>{{ product.price }}</h2>
-		<p class="product-description">{{ product.description }}</p>
+		<div class="product-details">
+			<div class="product-name">{{ product.name }}</div>
+			<div class="product-price">{{ product.price | price }}</div>
+			<p class="product-description">{{ product.description }}</p>
 
-		<product-options :options="product.options" />
+			<product-options :options="product.options" />
 
-		<div v-if="error" class="required-error">
-			Fields marked * are required.
+			<div v-if="error" class="required-error">
+				Fields marked * are required.
+			</div>
+
+			<div class="add-to-cart" @click="addToCart">ADD TO CART</div>
 		</div>
-
-		<div class="add-to-cart" @click="addToCart">ADD TO CART</div>
 	</div>
 </template>
 
@@ -77,6 +83,36 @@ export default {
 </script>
 
 <style scoped>
+	.product-page {
+		display: flex;
+		flex-direction: row;
+		width: 70%;
+		left: 15%;
+		position: relative;
+	}
+
+	.product-image {
+		width: 50%;
+		padding: 20px 80px;
+	}
+
+	.product-details {
+		width: 50%;
+	}
+
+	.product-name {
+		font-size: 30px;
+		padding: 20px 0px;
+	}
+
+	.product-price {
+		border: 1px solid var(--border-color-secondary);
+		border-right: 0px;
+		border-left: 0px;
+
+		padding: 5px 0px;
+	}
+
 	.product-description {
 		color: var(--text-color-secondary);
 	}
@@ -89,6 +125,7 @@ export default {
 		border: 2px solid var(--border-color-primary);
 		display: inline-block;
 		padding: 5px 10px;
+		margin-top: 20px;
 		font-weight: 600;
 		cursor: pointer;
 		transition: color 0.2s, background-color 0.2s;
