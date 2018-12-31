@@ -24,9 +24,10 @@ export default new Vuex.Store({
 		cart: []
 	},
 	actions: {
-
 	},
 	mutations: {
-
+		addToCart (state, product) {
+			state.cart.push(product);
+		}
 	}
 });

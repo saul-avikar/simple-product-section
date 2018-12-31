@@ -61,7 +61,11 @@ export default {
 			});
 
 			if (!this.error) {
-				// Add to cart
+				const product = { ...this.product };
+
+				product.options = options;
+
+				this.$store.commit("addToCart", product);
 			}
 		}
 	},
