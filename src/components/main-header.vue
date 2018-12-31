@@ -1,7 +1,10 @@
 <template>
 	<header class="header">
 		<nav class="nav-bar">
-			<a-nav-link class="nav-cart" @click="">My Cart</a-nav-link>
+			<div class="dropdown">
+				<a-nav-link class="nav-cart" @click.native="openCart" v-click-outside="closeCart">My Cart</a-nav-link>
+				<mini-cart class="mini-cart" />
+			</div>
 		</nav>
 	</header>
 </template>
@@ -11,6 +14,20 @@ import MiniCart from "./mini-cart";
 import ANavLink from "./app-nav-link";
 
 export default {
+	data: () => ({
+		showCart: false
+	}),
+
+	methods: {
+		openCart () {
+			this.showCart = !this.showCart;
+		},
+
+		closeCart () {
+			this.showCart = false;
+		}
+	},
+
 	components: {
 		MiniCart,
 		ANavLink
@@ -29,6 +46,32 @@ export default {
 	}
 
 	.nav-cart {
+		box-sizing: border-box;
+		height: 30px;
+		width: 80px;
+	}
+
+	.dropdown {
 		margin-left: auto;
+		position: relative;
+		display: inline-block;
+	}
+
+	.dropdown:hover > .mini-cart {
+		display: block;
+	}
+
+	.dropdown:hover > .nav-cart {
+		background-color: white;
+		color: var(--text-color-primary);
+		border: 1px solid var(--border-color-secondary);
+		border-bottom: 0px;
+	}
+
+	.mini-cart {
+		display: none;
+		position: absolute;
+		z-index: 1;
+		right:0;
 	}
 </style>

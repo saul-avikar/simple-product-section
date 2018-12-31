@@ -91,5 +91,11 @@ export default {
 		padding: 5px 10px;
 		font-weight: 600;
 		cursor: pointer;
+		transition: color 0.2s, background-color 0.2s;
+	}
+
+	.add-to-cart:hover {
+		background-color: var(--border-color-primary);
+		color: white;
 	}
 </style>
