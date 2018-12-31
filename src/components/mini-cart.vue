@@ -23,7 +23,7 @@ export default {
 		},
 
 		screenWidth () {
-			return screen.width * 0.85;
+			return screen.width - 30;
 		}
 	},
 
@@ -35,30 +35,42 @@ export default {
 
 <style scoped>
 	.mini-cart {
+		box-sizing: border-box;
 		position: absolute;
 		padding: 0px 20px;
 		margin-right: auto;
-		max-width: 300px;
+		max-width: 340px;
 		border: 1px solid var(--border-color-secondary);
 		background-color: white;
-	}
-
-	.mini-cart:after {
-		position: absolute;
-		top: -1px; right: 0px;
-		content: '';
-		background: #fff;
-		width: 118px;
-		height: 1px;
 	}
 
 	.mini-cart-empty {
 		padding: 20px;
 	}
 
-	@media (max-width: 600px) {
+	@media screen and (min-width: 600px) {
+		.mini-cart:after {
+			position: absolute;
+			top: -1px; right: 0px;
+			content: '';
+			background: #fff;
+			width: 118px;
+			height: 1px;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		.mini-cart:after {
+			position: absolute;
+			top: -1px; right: 0px;
+			content: '';
+			background: #fff;
+			width: 78px;
+			height: 1px;
+		}
+
 		.mini-cart {
-			max-width: 600px;
+			max-width: 570px;
 		}
 	}
 </style>

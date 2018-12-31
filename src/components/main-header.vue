@@ -7,7 +7,13 @@
 					@click.native="openCart"
 					v-click-outside="closeCart"
 				>
-					My Cart ( {{ cartSize }} )
+					<template v-if="isMobile">
+						<i class="material-icons">shopping_cart</i>
+						<span>( {{ cartSize }} )</span>
+					</template>
+					<template v-else>
+						My Cart ( {{ cartSize }} )
+					</template>
 				</a-nav-link>
 				<mini-cart class="mini-cart" />
 			</div>
@@ -49,6 +55,10 @@ export default {
 			}).quantity;
 
 			return cartTotal;
+		},
+
+		isMobile () {
+			return screen.width <= 600;
 		}
 	},
 
@@ -99,9 +109,18 @@ export default {
 		right:0;
 	}
 
+	.nav-cart > * {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
 	@media (max-width: 600px) {
 		.header {
-			padding: 0px 5%;
+			padding: 0px 15px;
+		}
+
+		.nav-cart {
+			width: 80px;
 		}
 	}
 </style>
